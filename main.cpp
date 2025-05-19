@@ -30,6 +30,13 @@ int main() {
     std::cout << "Preorder traversal : \n";
     preOrder(root);
 
+    root = avl_tree.remove(root, 2);
+    root = avl_tree.remove(root, 8);
+    root = avl_tree.remove(root, 1);
+
+    std::cout << "\nPreorder traversal after deletion : \n";
+    preOrder(root);
+
     /*
     int wybor;
     std::cout << "Wybierz:\n";

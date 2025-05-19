@@ -26,7 +26,7 @@ public:
     AVLTree();
     ~AVLTree();
     AVLNode<T>* insert(AVLNode<T> *node, T key, T value);
-    void remove(T key);
+    AVLNode<T>* remove(AVLNode<T> *node, T key);
 
 private:
     int size = 0;
@@ -126,6 +126,66 @@ AVLNode<T>* AVLTree<T>::insert(AVLNode<T> *node, T key, T value) {
 }
 
 template<class T>
-void AVLTree<T>::remove(T key) {
+AVLNode<T>* AVLTree<T>::remove(AVLNode<T> *node, T key) {
+    if (node == nullptr) {
+        return node;
+    }
 
+    if (key < node->key) {
+        node->left = remove(node->left, key);
+    }
+    else if (key > node->key) {
+        node->right = remove(node->right, key);
+    }
+    else {
+        if (node->left == nullptr || node->right == nullptr) {
+            AVLNode<T> *temp = node->left ? node->left : node->right;
+
+            if (temp == nullptr) {
+                temp = node;
+                node = nullptr;
+            } else {
+                node = temp;
+            }
+
+            delete temp;
+        } else {
+            AVLNode<T> *temp = node->right;
+            while (temp->left != nullptr) {
+                temp = temp->left;
+            }
+            node->key = temp->key;
+            node->value = temp->value;
+            node->right = remove(node->right, temp->key);
+        }
+    }
+
+    if (node == nullptr) {
+        return nullptr;
+    }
+
+    node->height = std::max(height(node->left), height(node->right)) + 1;
+
+    int balance = height(node->left) - height(node->right);
+
+    // LL
+    if (balance > 1 && height(node->left->left) >= height(node->left->right)) {
+        return rightRotate(node);
+    }
+    // LR
+    if (balance > 1 && height(node->left->left) < height(node->left->right)) {
+        node->left = leftRotate(node->left);
+        return rightRotate(node);
+    }
+    // RL
+    if (balance < -1 && height(node->right->left) >= height(node->right->right)) {
+        return leftRotate(node);
+    }
+    // RR
+    if (balance < -1 && height(node->right->left) < height(node->right->right)) {
+        node->right = rightRotate(node->right);
+        return leftRotate(node);
+    }
+
+    return node;
 }
