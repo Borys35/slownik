@@ -5,15 +5,11 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(dictionary main.cpp
         ArrayList.hpp
-        DoublyLinkedList.hpp
         BaseList.hpp
-        DoublyLinkedList.cpp
-        SinglyLinkedList.h
-        SinglyLinkedList.cpp
         Menu.h
         Menu.cpp
         TestGenerator.cpp
         TestGenerator.hpp
         Utility.hpp
-        ArrayPriorityQueue.hpp
-        HeapPriorityQueue.hpp)
+        AVLTree.hpp
+)

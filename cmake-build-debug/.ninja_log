@@ -1,8 +1,17 @@
 # ninja log v6
-8	485	7693574192082658	CMakeFiles/dictionary.dir/main.cpp.obj	642cad9f130ace34
-37	1125	7693574989512617	CMakeFiles/dictionary.dir/TestGenerator.cpp.obj	bb0c1a04081d480d
-2	367	7693576210750016	build.ninja	eb36871f4da7857a
-34	1070	7693574989482631	CMakeFiles/dictionary.dir/Menu.cpp.obj	eafe284d4d1be7ce
-26	324	7693576406852669	CMakeFiles/dictionary.dir/DoublyLinkedList.cpp.obj	fdc6fb01bfa4bc86
+21	1076	7693600350925504	CMakeFiles/dictionary.dir/TestGenerator.cpp.obj	bb0c1a04081d480d
+4	470	7693631055432209	CMakeFiles/dictionary.dir/main.cpp.obj	642cad9f130ace34
+2	367	7693631153594449	build.ninja	eb36871f4da7857a
+8	218	7693629399389857	CMakeFiles/dictionary.dir/AVLTree.cpp.obj	cc8b1fba2c748f90
 3	256	7693576819899771	CMakeFiles/dictionary.dir/SinglyLinkedList.cpp.obj	dfd56b5bc131b632
-256	360	7693576822437454	dictionary.exe	d43be1217d28250a
+3	817	7693601450375221	CMakeFiles/dictionary.dir/Menu.cpp.obj	eafe284d4d1be7ce
+26	324	7693576406852669	CMakeFiles/dictionary.dir/DoublyLinkedList.cpp.obj	fdc6fb01bfa4bc86
+817	938	7693601458505895	dictionary.exe	9549a76798bdf405
+2	340	7693631153594449	build.ninja	eb36871f4da7857a
+35	136	7693631155295682	dictionary.exe	d3a1d5f5dadb8b96
+5	481	7693631269003224	CMakeFiles/dictionary.dir/main.cpp.obj	642cad9f130ace34
+482	577	7693631273780102	dictionary.exe	d3a1d5f5dadb8b96
+4	397	7693631641445517	CMakeFiles/dictionary.dir/main.cpp.obj	642cad9f130ace34
+398	504	7693631645381279	dictionary.exe	d3a1d5f5dadb8b96
+4	384	7693632917433219	CMakeFiles/dictionary.dir/main.cpp.obj	642cad9f130ace34
+385	491	7693632921247587	dictionary.exe	d3a1d5f5dadb8b96

@@ -6,8 +6,6 @@
 #include <string>
 #include "ArrayList.hpp"
 #include "TestGenerator.hpp"
-#include "HeapPriorityQueue.hpp"
-#include "ArrayPriorityQueue.hpp"
 
 void showMenu() {
     std::cout << "====== MENU ======\n";
@@ -34,16 +32,6 @@ void showOperationMenu() {
     std::cout << "Wybierz operacje: ";
 }
 
-void showPriorityQueueMenu() {
-    std::cout << "\n==== OPERACJE NA KOLEJCE PRIORYTETOWEJ ====\n";
-    std::cout << "1. insert - dodaj element o podanym priorytecie\n";
-    std::cout << "2. extract_max - usun i zwroc element o najwiekszym priorytecie\n";
-    std::cout << "3. find_max - zwroc element o najwiekszym priorytecie\n";
-    std::cout << "4. modify_key - zmien priorytet elementu\n";
-    std::cout << "5. return_size - wyswietl liczbe elementow\n";
-    std::cout << "0. Powrot do menu glownego\n";
-    std::cout << "Wybierz operacje: ";
-}
 
 template<class T>
 void performListOperations(BaseList<T>& list, const std::string& listName) {
@@ -164,7 +152,7 @@ void performListOperations(BaseList<T>& list, const std::string& listName) {
     } while (choice != 0);
 }
 
-template<class T>
+/*template<class T>
 void performPriorityQueueOperations(PriorityQueueBase<T>& queue, const std::string& queueName) {
     int choice;
     int value, priority;
@@ -229,7 +217,7 @@ void performPriorityQueueOperations(PriorityQueueBase<T>& queue, const std::stri
         }
 
     } while (choice != 0);
-}
+}*/
 
 void runMenu() {
     int choice;
@@ -253,13 +241,9 @@ void runMenu() {
                 std::cin >> queueChoice;
 
                 if (queueChoice == 1) {
-                    HeapPriorityQueue<int> heapQueue;
-                    std::cout << "Wybrano HeapPriorityQueue\n";
-                    performPriorityQueueOperations(heapQueue, "HeapPriorityQueue");
+
                 } else if (queueChoice == 2) {
-                    ArrayPriorityQueue<int> arrayQueue;
-                    std::cout << "Wybrano ArrayPriorityQueue\n";
-                    performPriorityQueueOperations(arrayQueue, "ArrayPriorityQueue");
+
                 } else {
                     std::cout << "Niepoprawny wybor!\n";
                 }
@@ -278,4 +262,4 @@ void runMenu() {
 }
 
 template void performListOperations<int>(BaseList<int>& list, const std::string& listName);
-template void performPriorityQueueOperations<int>(PriorityQueueBase<int>& queue, const std::string& queueName);
+// template void performPriorityQueueOperations<int>(PriorityQueueBase<int>& queue, const std::string& queueName);

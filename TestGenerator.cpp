@@ -1,6 +1,4 @@
 #include "TestGenerator.hpp"
-#include "ArrayPriorityQueue.hpp"
-#include "HeapPriorityQueue.hpp"
 
 void generateTests() {
     std::ofstream file;
@@ -18,7 +16,7 @@ void generateTests() {
 
     file << "rozmiar,operacja,kopiec_avg,tablica_avg\n";
 
-    for (int i = 0; i < 8; i++) {
+    /*for (int i = 0; i < 8; i++) {
         int size = sizes[i];
         for (const auto& operacja : operacje) {
             long long totalHeapTime = 0;
@@ -90,6 +88,7 @@ void generateTests() {
             std::cout << "  Sredni czas dla tablicy: " << avgArrayTime << " ns" << std::endl;
         }
     }
+    */
     file.close();
     std::cout << "Wyniki zapisano do pliku data.txt" << std::endl;
 }

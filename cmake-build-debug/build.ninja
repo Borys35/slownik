@@ -55,18 +55,6 @@ build CMakeFiles/dictionary.dir/main.cpp.obj: CXX_COMPILER__dictionary_unscanned
   OBJECT_DIR = CMakeFiles\dictionary.dir
   OBJECT_FILE_DIR = CMakeFiles\dictionary.dir
 
-build CMakeFiles/dictionary.dir/DoublyLinkedList.cpp.obj: CXX_COMPILER__dictionary_unscanned_Debug C$:/Users/borys/CLionProjects/dictionary/DoublyLinkedList.cpp || cmake_object_order_depends_target_dictionary
-  DEP_FILE = CMakeFiles\dictionary.dir\DoublyLinkedList.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\dictionary.dir
-  OBJECT_FILE_DIR = CMakeFiles\dictionary.dir
-
-build CMakeFiles/dictionary.dir/SinglyLinkedList.cpp.obj: CXX_COMPILER__dictionary_unscanned_Debug C$:/Users/borys/CLionProjects/dictionary/SinglyLinkedList.cpp || cmake_object_order_depends_target_dictionary
-  DEP_FILE = CMakeFiles\dictionary.dir\SinglyLinkedList.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\dictionary.dir
-  OBJECT_FILE_DIR = CMakeFiles\dictionary.dir
-
 build CMakeFiles/dictionary.dir/Menu.cpp.obj: CXX_COMPILER__dictionary_unscanned_Debug C$:/Users/borys/CLionProjects/dictionary/Menu.cpp || cmake_object_order_depends_target_dictionary
   DEP_FILE = CMakeFiles\dictionary.dir\Menu.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
@@ -87,7 +75,7 @@ build CMakeFiles/dictionary.dir/TestGenerator.cpp.obj: CXX_COMPILER__dictionary_
 #############################################
 # Link the executable dictionary.exe
 
-build dictionary.exe: CXX_EXECUTABLE_LINKER__dictionary_Debug CMakeFiles/dictionary.dir/main.cpp.obj CMakeFiles/dictionary.dir/DoublyLinkedList.cpp.obj CMakeFiles/dictionary.dir/SinglyLinkedList.cpp.obj CMakeFiles/dictionary.dir/Menu.cpp.obj CMakeFiles/dictionary.dir/TestGenerator.cpp.obj
+build dictionary.exe: CXX_EXECUTABLE_LINKER__dictionary_Debug CMakeFiles/dictionary.dir/main.cpp.obj CMakeFiles/dictionary.dir/Menu.cpp.obj CMakeFiles/dictionary.dir/TestGenerator.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\dictionary.dir
