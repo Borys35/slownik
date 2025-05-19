@@ -3,6 +3,8 @@
 //
 #include "SinglyLinkedList.h"
 
+#include <stdexcept>
+
 template<class T>
 SinglyLinkedList<T>::SinglyLinkedList(): head(nullptr), tail(nullptr), size(0) {
 }
@@ -143,10 +145,10 @@ T SinglyLinkedList<T>::remove(int index) {
 }
 
 template<class T>
-T SinglyLinkedList<T>::get(int index) {
+T& SinglyLinkedList<T>::get(int index) {
     if (index < 0 || index >= size) {
         // error
-        return 0;
+        throw std::out_of_range("index out of range");
     }
     if (index == 0) {
         return head->value;

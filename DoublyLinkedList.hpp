@@ -20,7 +20,7 @@ public:
     T remove_front() override;
     T remove_back() override;
     T remove(int index) override;
-    T get(int index) override;
+    T& get(int index) override;
     int count() override;
     int search(T value) override;
 

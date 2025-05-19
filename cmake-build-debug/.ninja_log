@@ -1,0 +1,8 @@
+# ninja log v6
+8	485	7693574192082658	CMakeFiles/dictionary.dir/main.cpp.obj	642cad9f130ace34
+37	1125	7693574989512617	CMakeFiles/dictionary.dir/TestGenerator.cpp.obj	bb0c1a04081d480d
+2	367	7693576210750016	build.ninja	eb36871f4da7857a
+34	1070	7693574989482631	CMakeFiles/dictionary.dir/Menu.cpp.obj	eafe284d4d1be7ce
+26	324	7693576406852669	CMakeFiles/dictionary.dir/DoublyLinkedList.cpp.obj	fdc6fb01bfa4bc86
+3	256	7693576819899771	CMakeFiles/dictionary.dir/SinglyLinkedList.cpp.obj	dfd56b5bc131b632
+256	360	7693576822437454	dictionary.exe	d43be1217d28250a

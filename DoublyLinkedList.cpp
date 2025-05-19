@@ -2,6 +2,7 @@
 // Created by borys on 02/04/2025.
 //
 
+#include <stdexcept>
 #include "DoublyLinkedList.hpp"
 
 template<class T>
@@ -171,10 +172,10 @@ T DoublyLinkedList<T>::remove(int index) {
 }
 
 template<class T>
-T DoublyLinkedList<T>::get(int index) {
+T& DoublyLinkedList<T>::get(int index) {
     if (index < 0 || index >= size) {
         // error
-        return -1;
+        throw std::out_of_range("index out of range");
     }
 
     if (index == 0) {
