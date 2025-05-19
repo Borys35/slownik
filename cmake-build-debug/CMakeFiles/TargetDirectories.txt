@@ -1,0 +1,3 @@
+C:/Users/borys/CLionProjects/dictionary/cmake-build-debug/CMakeFiles/dictionary.dir
+C:/Users/borys/CLionProjects/dictionary/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/borys/CLionProjects/dictionary/cmake-build-debug/CMakeFiles/rebuild_cache.dir
