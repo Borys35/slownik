@@ -1,5 +1,8 @@
 #include "TestGenerator.hpp"
 
+#include "AVLTree.hpp"
+#include "CuckooHashTable.hpp"
+
 void generateTests() {
     std::ofstream file;
     file.open("./data.txt", std::ios::out | std::ios::trunc);
@@ -12,83 +15,72 @@ void generateTests() {
     std::cout << "Generowanie testow\n";
 
     int sizes[8] = {5000, 8000, 10000, 16000, 20000, 40000, 60000, 100000};
-    std::vector<std::string> operacje = {"insert", "extract_max", "find_max", "modify_key", "return_size"};
+    std::vector<std::string> operacje = {"insert", "remove"};
 
-    file << "rozmiar,operacja,kopiec_avg,tablica_avg\n";
+    file << "rozmiar,operacja,avl_tree_avg,cuckoo_avg\n";
 
-    /*for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 8; i++) {
         int size = sizes[i];
         for (const auto& operacja : operacje) {
-            long long totalHeapTime = 0;
-            long long totalArrayTime = 0;
+            long long totalAvlTreeTime = 0;
+            long long totalCuckooTime = 0;
 
             // ilosc testow na jedna operacje
             for (int j = 0; j < 100; j++) {
-                HeapPriorityQueue<int> heapQueue;
-                ArrayPriorityQueue<int> arrayQueue;
-
-                // Inicjalizacja list
-                int *valueArray = new int[size];
-                int *priorityArray = new int[size];
-
                 // Ustawiamy inny seed dla każdego przypadku
                 srand(time(nullptr) + j);
 
-                fillArray(valueArray, priorityArray, size);
+                AVLTree<int> avl_tree;
+                AVLNode<int>* root = nullptr;
+                CuckooHashTable<int> cuckoo(size * 2);
 
-                arrayToList(size, valueArray, priorityArray, [&](int v, int p) { heapQueue.insert(v, p); });
-                arrayToList(size, valueArray, priorityArray, [&](int v, int p) { arrayQueue.insert(v, p); });
+                // Inicjalizacja list
+                int *keyArray = new int[size];
+                int *valueArray = new int[size];
 
-                int rValue = rand() % 1001;
-                int rPriority = rand() % 10001;
+                fillArray(keyArray, valueArray, size);
 
-                // Heap Priority Queue
-                long long durationHeap;
+                arrayToList(size, keyArray, valueArray, [&](int k, int v) { avl_tree.insert(root, k, v); });
+                arrayToList(size, keyArray, valueArray, [&](int k, int v) { cuckoo.insert(k, v); });
+
+                int rKey = rand() % 1001;
+                int rValue = rand() % 10001;
+
+                // AVL Tree
+                long long durationAvl;
                 if (operacja == "insert") {
-                    durationHeap = measureTime([&]() { heapQueue.insert(rValue, rPriority); });
-                } else if (operacja == "extract_max") {
-                    durationHeap = measureTime([&]() { heapQueue.extract_max(); });
-                } else if (operacja == "find_max") {
-                    durationHeap = measureTime([&]() { heapQueue.find_max(); });
-                } else if (operacja == "modify_key") {
-                    durationHeap = measureTime([&]() { heapQueue.modify_key(rValue, rPriority); });
-                } else if (operacja == "return_size") {
-                    durationHeap = measureTime([&]() { heapQueue.return_size(); });
+                    durationAvl = measureTime([&]() { avl_tree.insert(root, rKey, rValue); });
+                } else if (operacja == "remove") {
+                    durationAvl = measureTime([&]() { avl_tree.remove(root, rKey); });
                 } else {
-                    durationHeap = 0;
+                    durationAvl = 0;
                 }
-                totalHeapTime += durationHeap;
+                totalAvlTreeTime += durationAvl;
 
-                // Array Priority Queue
-                long long durationArray;
+                // Cuckoo
+                long long durationCuckoo;
                 if (operacja == "insert") {
-                    durationArray = measureTime([&]() { arrayQueue.insert(rValue, rPriority); });
-                } else if (operacja == "extract_max") {
-                    durationArray = measureTime([&]() { arrayQueue.extract_max(); });
-                } else if (operacja == "find_max") {
-                    durationArray = measureTime([&]() { arrayQueue.find_max(); });
-                } else if (operacja == "modify_key") {
-                    durationArray = measureTime([&]() { arrayQueue.modify_key(rValue, rPriority); });
-                } else if (operacja == "return_size") {
-                    durationArray = measureTime([&]() { arrayQueue.return_size(); });
+                    durationCuckoo = measureTime([&]() { cuckoo.insert(rKey, rValue); });
+                } else if (operacja == "remove") {
+                    durationCuckoo = measureTime([&]() { cuckoo.remove(rKey); });
                 } else {
-                    durationArray = 0;
+                    durationCuckoo = 0;
                 }
-                totalArrayTime += durationArray;
+                totalCuckooTime += durationCuckoo;
 
+                delete [] keyArray;
                 delete [] valueArray;
-                delete [] priorityArray;
             }
-            long long avgHeapTime = totalHeapTime / 100;
-            long long avgArrayTime = totalArrayTime / 100;
+            long long avgAvlTime = totalAvlTreeTime / 100;
+            long long avgCuckooTime = totalCuckooTime / 100;
 
-            file << size << "," << operacja << "," << avgHeapTime << "," << avgArrayTime << "\n";
+            file << size << "," << operacja << "," << avgAvlTime << "," << avgCuckooTime << "\n";
             std::cout << "Zakonczono testy dla operacji " << operacja << " na rozmiarze " << size << std::endl;
-            std::cout << "  Sredni czas dla kopca: " << avgHeapTime << " ns" << std::endl;
-            std::cout << "  Sredni czas dla tablicy: " << avgArrayTime << " ns" << std::endl;
+            std::cout << "  Sredni czas dla avl tree: " << avgAvlTime << " ns" << std::endl;
+            std::cout << "  Sredni czas dla cuckoo hash table: " << avgCuckooTime << " ns" << std::endl;
         }
     }
-    */
+
     file.close();
     std::cout << "Wyniki zapisano do pliku data.txt" << std::endl;
 }

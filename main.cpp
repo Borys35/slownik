@@ -17,7 +17,7 @@ int main() {
     std::cout << "Program do testowania slownika\n";
     std::cout << "=============================================\n\n";
 
-    AVLTree<int> avl_tree;
+    /*AVLTree<int> avl_tree;
     AVLNode<int>* root = nullptr;
     root = avl_tree.insert(root, 1, 10);
     root = avl_tree.insert(root, 2, 20);
@@ -49,13 +49,12 @@ int main() {
     cuckoo_hash_table.insert(6, 50);
 
 
-    // cuckoo_hash_table.remove(1);
+    cuckoo_hash_table.remove(1);
     cuckoo_hash_table.remove(4);
     cuckoo_hash_table.remove(3);
 
-    cuckoo_hash_table.print();
+    cuckoo_hash_table.print();*/
 
-    /*
     int wybor;
     std::cout << "Wybierz:\n";
     std::cout << "1. Uruchom menu testow wydajnosci\n";
@@ -70,7 +69,6 @@ int main() {
     } else {
         std::cout << "Nieprawidlowy wybor.\n";
     }
-    */
 
     return 0;
 }

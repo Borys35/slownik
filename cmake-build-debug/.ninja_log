@@ -69,3 +69,6 @@
 444	561	7694356336145226	dictionary.exe	d3a1d5f5dadb8b96
 50	459	7694360583760880	CMakeFiles/dictionary.dir/main.cpp.obj	642cad9f130ace34
 459	548	7694360587866477	dictionary.exe	d3a1d5f5dadb8b96
+3	417	7694368039237013	CMakeFiles/dictionary.dir/main.cpp.obj	642cad9f130ace34
+7	1060	7694368039282687	CMakeFiles/dictionary.dir/TestGenerator.cpp.obj	bb0c1a04081d480d
+1060	1152	7694368049809863	dictionary.exe	d3a1d5f5dadb8b96
