@@ -1,6 +1,9 @@
 #pragma once
 
 #include <algorithm>
+#include <vector>
+
+#include "ArrayList.hpp"
 
 template<typename T>
 struct AVLNode {
@@ -10,12 +13,19 @@ struct AVLNode {
     AVLNode *left;
     AVLNode *right;
 
+    AVLNode() {
+
+    }
     AVLNode(T key, T value) {
         this->key = key;
         this->value = value;
         this->left = nullptr;
         this->right = nullptr;
         this->height = 1;
+    }
+
+    bool operator==(const AVLNode &other) const {
+        return key == other.key;
     }
 };
 
@@ -27,13 +37,18 @@ public:
     ~AVLTree();
     AVLNode<T>* insert(AVLNode<T> *node, T key, T value);
     AVLNode<T>* remove(AVLNode<T> *node, T key);
+    AVLNode<T>* insert(T key, T value);
+    AVLNode<T>* remove(T key);
+    ArrayList<AVLNode<T>> getAll();
+    int return_size();
 
 private:
     int size = 0;
-    AVLNode<T> *root;
     int height(AVLNode<T> *node);
     AVLNode<T>* leftRotate(AVLNode<T> *node);
     AVLNode<T>* rightRotate(AVLNode<T> *node);
+    AVLNode<int>* root = nullptr;
+    void collectAll(AVLNode<T> *node, ArrayList<AVLNode<T>> &list);
 };
 
 template<class T>
@@ -44,6 +59,11 @@ AVLTree<T>::AVLTree() {
 template<class T>
 AVLTree<T>::~AVLTree() {
 
+}
+
+template<class T>
+int AVLTree<T>::return_size() {
+    return size;
 }
 
 template<class T>
@@ -189,3 +209,30 @@ AVLNode<T>* AVLTree<T>::remove(AVLNode<T> *node, T key) {
 
     return node;
 }
+
+template<class T>
+AVLNode<T> * AVLTree<T>::insert(T key, T value) {
+    return insert(root, key, value);
+}
+
+template<class T>
+AVLNode<T> * AVLTree<T>::remove(T key) {
+    return remove(root, key);
+}
+
+template<class T>
+void AVLTree<T>::collectAll(AVLNode<T> *node, ArrayList<AVLNode<T>> &list) {
+    if (node) {
+        collectAll(node->left, list);
+        list.push_back(*node);
+        collectAll(node->right, list);
+    }
+}
+
+template<class T>
+ArrayList<AVLNode<T>> AVLTree<T>::getAll() {
+    ArrayList<AVLNode<T>> list;
+    collectAll(root, list);
+    return list;
+}
+

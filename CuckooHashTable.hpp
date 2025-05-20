@@ -57,7 +57,6 @@ T CuckooHashTable<T>::hash2(T key) {
 
 template<class T>
 void CuckooHashTable<T>::rehash() {
-    std::cout << "Rehashing..." << std::endl;
     int oldCapacity = this->capacity;
     auto **oldHashTable1 = this->hashTable1;
     auto **oldHashTable2 = this->hashTable2;

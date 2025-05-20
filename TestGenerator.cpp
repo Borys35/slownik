@@ -1,6 +1,7 @@
 #include "TestGenerator.hpp"
 
 #include "AVLTree.hpp"
+#include "AVLTreeHashTable.hpp"
 #include "CuckooHashTable.hpp"
 
 void generateTests() {
@@ -30,9 +31,8 @@ void generateTests() {
                 // Ustawiamy inny seed dla każdego przypadku
                 srand(time(nullptr) + j);
 
-                AVLTree<int> avl_tree;
-                AVLNode<int>* root = nullptr;
-                CuckooHashTable<int> cuckoo(size * 2);
+                AVLTreeHashTable<int> avl_tree(16);
+                CuckooHashTable<int> cuckoo(16);
 
                 // Inicjalizacja list
                 int *keyArray = new int[size];
@@ -40,7 +40,7 @@ void generateTests() {
 
                 fillArray(keyArray, valueArray, size);
 
-                arrayToList(size, keyArray, valueArray, [&](int k, int v) { avl_tree.insert(root, k, v); });
+                arrayToList(size, keyArray, valueArray, [&](int k, int v) { avl_tree.insert(k, v); });
                 arrayToList(size, keyArray, valueArray, [&](int k, int v) { cuckoo.insert(k, v); });
 
                 int rKey = rand() % 1001;
@@ -49,9 +49,9 @@ void generateTests() {
                 // AVL Tree
                 long long durationAvl;
                 if (operacja == "insert") {
-                    durationAvl = measureTime([&]() { avl_tree.insert(root, rKey, rValue); });
+                    durationAvl = measureTime([&]() { avl_tree.insert(rKey, rValue); });
                 } else if (operacja == "remove") {
-                    durationAvl = measureTime([&]() { avl_tree.remove(root, rKey); });
+                    durationAvl = measureTime([&]() { avl_tree.remove(rKey); });
                 } else {
                     durationAvl = 0;
                 }

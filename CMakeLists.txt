@@ -13,4 +13,5 @@ add_executable(dictionary main.cpp
         Utility.hpp
         AVLTree.hpp
         CuckooHashTable.hpp
+        AVLTreeHashTable.hpp
 )
