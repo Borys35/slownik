@@ -12,4 +12,5 @@ add_executable(dictionary main.cpp
         TestGenerator.hpp
         Utility.hpp
         AVLTree.hpp
+        CuckooHashTable.hpp
 )

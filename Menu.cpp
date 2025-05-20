@@ -62,7 +62,7 @@ void performListOperations(BaseList<T>& list, const std::string& listName) {
                 std::cin >> value;
                 std::cout << "Podaj indeks: ";
                 std::cin >> index;
-                list.insert(value, index);
+                list.insert(&value, index);
                 std::cout << "Dodano " << value << " na pozycji " << index << ".\n";
                 break;
 
@@ -104,7 +104,7 @@ void performListOperations(BaseList<T>& list, const std::string& listName) {
                     std::cout << "Podaj indeks: ";
                     std::cin >> index;
                     if (index >= 0 && index < list.count()) {
-                        value = list.get(index);
+                        value = *list.get(index);
                         std::cout << "Element na pozycji " << index << " to: " << value << ".\n";
                     } else {
                         std::cout << "Niepoprawny indeks!\n";

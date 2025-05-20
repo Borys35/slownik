@@ -105,7 +105,8 @@
 				3,
 				6,
 				7,
-				8
+				8,
+				9
 			]
 		}
 	],
@@ -157,6 +158,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "AVLTree.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "CuckooHashTable.hpp",
 			"sourceGroupIndex" : 1
 		}
 	],

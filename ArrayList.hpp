@@ -1,5 +1,7 @@
 #pragma once
 
+#include <array>
+
 #include "BaseList.hpp"
 
 template<class T>
@@ -10,13 +12,14 @@ public:
     void push_front(T value) override;
     void push_back(T value) override;
     T pop_back() override;
-    void insert(T value, int index) override;
+    void insert(T *value, int index) override;
     T remove_front() override;
     T remove_back() override;
     T remove(int index) override;
-    T& get(int index) override;
+    T* get(int index) override;
     int count() override;
     int search(T value) override;
+    void resize(int maxSize);
 
 private:
     T* array;
@@ -54,6 +57,18 @@ void ArrayList<T>::increase_size() {
 }
 
 template<class T>
+void ArrayList<T>::resize(int maxSize) {
+    this->max_size = maxSize;
+    T *temp = new T[maxSize];
+    for (int i = 0; i < size; i++) {
+        temp[i] = array[i];
+    }
+    delete[] array;
+    array = temp;
+}
+
+
+template<class T>
 void ArrayList<T>::push_back(T value) {
     if (size >= max_size) {
         increase_size();
@@ -84,14 +99,14 @@ T ArrayList<T>::pop_back() {
 }
 
 template<class T>
-void ArrayList<T>::insert(T value, int index) {
+void ArrayList<T>::insert(T *value, int index) {
     if (size >= max_size) {
         increase_size();
     }
     for (int i = size; i > index; i--) {
         array[i] = array[i - 1];
     }
-    array[index] = value;
+    array[index] = *value;
     size++;
 }
 
@@ -133,11 +148,12 @@ T ArrayList<T>::remove(int index) {
 }
 
 template<class T>
-T& ArrayList<T>::get(int index) {
-    if (index >= size || index < 0) {
+T* ArrayList<T>::get(int index) {
+    std::cout << "Given index is : " << index << std::endl;
+    if (index >= max_size || index < 0) {
         throw std::out_of_range("ArrayList");
     }
-    return array[index];
+    return &array[index];
 }
 
 template<class T>

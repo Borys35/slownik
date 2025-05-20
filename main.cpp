@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "AVLTree.hpp"
+#include "CuckooHashTable.hpp"
 #include "Menu.h"
 
 void preOrder(AVLNode<int> *root) {
@@ -36,6 +37,23 @@ int main() {
 
     std::cout << "\nPreorder traversal after deletion : \n";
     preOrder(root);
+
+    CuckooHashTable<int> cuckoo_hash_table(16);
+    cuckoo_hash_table.insert(1, 10);
+    cuckoo_hash_table.insert(2, 20);
+    cuckoo_hash_table.insert(3, 60);
+    cuckoo_hash_table.insert(4, 70);
+    cuckoo_hash_table.insert(5, 80);
+    cuckoo_hash_table.insert(6, 30);
+    cuckoo_hash_table.insert(1, 20);
+    cuckoo_hash_table.insert(6, 50);
+
+
+    // cuckoo_hash_table.remove(1);
+    cuckoo_hash_table.remove(4);
+    cuckoo_hash_table.remove(3);
+
+    cuckoo_hash_table.print();
 
     /*
     int wybor;
