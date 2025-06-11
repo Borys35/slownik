@@ -1,0 +1,14 @@
+# ninja log v5
+1	1102	7712953198057927	CMakeFiles/dictionary.dir/main.cpp.obj	bffcffe9f28b3b14
+8	1439	7712953201433847	CMakeFiles/dictionary.dir/Menu.cpp.obj	af21ee289fb0cd4a
+14	2035	7712953207404422	CMakeFiles/dictionary.dir/TestGenerator.cpp.obj	a8a7f13da2345691
+2035	2185	7712953208840022	dictionary.exe	466fc72504908805
+4	1253	7712954262548220	CMakeFiles/dictionary.dir/main.cpp.obj	bffcffe9f28b3b14
+11	2148	7712954271501477	CMakeFiles/dictionary.dir/TestGenerator.cpp.obj	a8a7f13da2345691
+2148	2318	7712954273142304	dictionary.exe	466fc72504908805
+4	1179	7712954670580509	CMakeFiles/dictionary.dir/main.cpp.obj	bffcffe9f28b3b14
+1180	1323	7712954671958789	dictionary.exe	466fc72504908805
+18	1550	7712977278295932	CMakeFiles/dictionary.dir/main.cpp.obj	bffcffe9f28b3b14
+7	1896	7712977281775238	CMakeFiles/dictionary.dir/Menu.cpp.obj	af21ee289fb0cd4a
+27	2595	7712977288758215	CMakeFiles/dictionary.dir/TestGenerator.cpp.obj	a8a7f13da2345691
+2595	2880	7712977291523762	dictionary.exe	466fc72504908805

@@ -1,0 +1,6 @@
+# ninja log v5
+9	1041	7694628612291493	CMakeFiles/dictionary.dir/TestGenerator.cpp.obj	bb0c1a04081d480d
+4	455	7694628612241476	CMakeFiles/dictionary.dir/main.cpp.obj	642cad9f130ace34
+2	340	7712946592940252	build.ninja	eb36871f4da7857a
+7	831	7693869892758072	CMakeFiles/dictionary.dir/Menu.cpp.obj	eafe284d4d1be7ce
+1041	1147	7694628622614220	dictionary.exe	d3a1d5f5dadb8b96

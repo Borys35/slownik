@@ -1,0 +1,3 @@
+C:/Users/borys/Downloads/SD_Kaczmarek_Piekielny_program3/slownik-main/slownik-main/cmake-build-debug/CMakeFiles/dictionary.dir
+C:/Users/borys/Downloads/SD_Kaczmarek_Piekielny_program3/slownik-main/slownik-main/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/borys/Downloads/SD_Kaczmarek_Piekielny_program3/slownik-main/slownik-main/cmake-build-debug/CMakeFiles/rebuild_cache.dir

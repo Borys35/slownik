@@ -1,0 +1,17 @@
+rozmiar,operacja,avl_tree_hash_avg,cuckoo_avg,linear_probing_avg
+5000,insert,91,51,44
+5000,remove,152,93,34
+8000,insert,100,65,43
+8000,remove,247,121,56
+10000,insert,79,53,33
+10000,remove,199,108,53
+16000,insert,84,58,44
+16000,remove,223,191,49
+20000,insert,64,44,34
+20000,remove,174,91,55
+40000,insert,95,55,43
+40000,remove,231,117,55
+60000,insert,118,72,41
+60000,remove,210,101,51
+100000,insert,298,80,46
+100000,remove,373,130,53

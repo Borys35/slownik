@@ -1,0 +1,3 @@
+C:/Users/User/OneDrive/Pulpit/slownik-main/slownik-main/cmake-build-release/CMakeFiles/dictionary.dir
+C:/Users/User/OneDrive/Pulpit/slownik-main/slownik-main/cmake-build-release/CMakeFiles/edit_cache.dir
+C:/Users/User/OneDrive/Pulpit/slownik-main/slownik-main/cmake-build-release/CMakeFiles/rebuild_cache.dir
